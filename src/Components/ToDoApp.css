@@ -6,6 +6,15 @@ footer{
     bottom: 0%;
     position: absolute;
     height: 40px;
-    width: 90%;
-    text-align-last: center;
+    width: 100%;
+    text-align: center;
+}
+.Welcome{
+    text-align: center;
+}
+h1,h2,h3{
+    text-align: center;
+}
+.LoginForm{
+    text-align: center;
 }

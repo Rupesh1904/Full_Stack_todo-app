@@ -1,14 +1,29 @@
-import { createContext, useContext, useState } from "react"
-
+import { createContext, useContext, useState } from "react";
 export const AuthContext= createContext()
 
 export const useAuth= ()=>useContext(AuthContext)
 
+
 export default function AuthProvider({children}){
-    const [number , setNumber]= useState(0);
-    const [isAuthenticated, SetAuthenticated] = useState(false)
+    
+    const [isAuthenticated, setAuthenticated] = useState(false)
+
+    function login(username, password){
+        if(username==="Rupesh" && password==="Rupesh" ){
+            setAuthenticated(true)
+            return true
+         }
+         else {
+            setAuthenticated(false)
+            return false
+         }
+    }
+    function logout(){
+        setAuthenticated(false)
+    }
+
     return (
-        <AuthContext.Provider value={{number,isAuthenticated,SetAuthenticated}}>
+        <AuthContext.Provider value={{isAuthenticated,setAuthenticated,login,logout}}>
             {children}
         </AuthContext.Provider>
     )
