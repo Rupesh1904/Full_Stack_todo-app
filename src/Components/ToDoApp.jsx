@@ -25,33 +25,30 @@ export default function ToDoApp(){
     return (
         <div>
             <AuthProvider>
-            <BrowserRouter>
-            <HeaderComponent/>
-                <Routes>
-                    <Route path='/' element={<LoginComponent/>} ></Route>
-                    <Route path='/Login' element={<LoginComponent/>} ></Route>
-                    <Route path='/Welcome/:username' element={
-                        <AuthenticatedRoute>
-                                <WelcomeComponent/>
-                        </AuthenticatedRoute>
-                    }>
-                    </Route>
-                    <Route path='/todos' element={
-                        <AuthenticatedRoute>
-                            <TodoListComponent/>
-                        </AuthenticatedRoute>
-                    
-                    } ></Route>
-                    <Route path='/logout'element={
-                        <AuthenticatedRoute>
-                            <LogoutComponent/>
-                        </AuthenticatedRoute>
-                   
-                    
-                    }/>
-                    <Route path='*' element={<ErrorComponent/>} ></Route>
-                </Routes>
-            </BrowserRouter>
+                <BrowserRouter>
+                <HeaderComponent/>
+                    <Routes>
+                        <Route path='/' element={<LoginComponent/>} ></Route>
+                        <Route path='/Login' element={<LoginComponent/>} ></Route>
+                        <Route path='/Welcome/:username' element={
+                            <AuthenticatedRoute>
+                                    <WelcomeComponent/>
+                            </AuthenticatedRoute>
+                        }>
+                        </Route>
+                        <Route path='/todos' element={
+                            <AuthenticatedRoute>
+                                <TodoListComponent/>
+                            </AuthenticatedRoute>
+                        } ></Route>
+                        <Route path='/logout'element={
+                            <AuthenticatedRoute>
+                                <LogoutComponent/>
+                            </AuthenticatedRoute>
+                        }/>
+                        <Route path='*' element={<ErrorComponent/>} ></Route>
+                    </Routes>
+                </BrowserRouter>
             </AuthProvider>
             <FooterComponent/>
         </div>
