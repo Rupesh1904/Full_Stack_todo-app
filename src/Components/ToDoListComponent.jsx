@@ -3,6 +3,7 @@ import { deleteTodoApi, retrieveAllTodosForUsername } from "../API/TodoApiServic
 import { retrieveAllTodosForUsernameApi} from "../API/TodoApiService"
 import { useAuth } from "./security/ContextAuth"
 import { useNavigate } from "react-router-dom"
+
 export default function TodoListComponent(){
 
     const today= new Date()
@@ -40,6 +41,9 @@ export default function TodoListComponent(){
        console.log('clicked',+id)
        navigate(`/todo/${id}`)
     }
+    function addNewTodo(){
+        navigate(`/todo/-1`)
+    }
 
     return(
         <div className="container">
@@ -73,6 +77,7 @@ export default function TodoListComponent(){
                         }
                     </tbody>
                 </table>
+                <div className="btn btn-success m-5" onClick={addNewTodo}>Add Todo</div>
             </div>
         </div>
     )
